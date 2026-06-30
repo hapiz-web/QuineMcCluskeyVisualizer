@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+
+<div class="row">
+
+<div class="col-lg-5">
+
+<div class="card shadow">
+
+<div class="card-header">
+
+<h4>
+
+Quine McCluskey Calculator
+
+</h4>
+
+</div>
+
+<div class="card-body">
+
+<form method="post">
+
+{% csrf_token %}
+
+<div class="mb-3">
+
+<label>
+
+Jumlah Variabel
+
+</label>
+
+{{ form.variable_count|add_class:"form-control" }}
+
+</div>
+
+<div class="mb-3">
+
+<label>
+
+Minterm
+
+</label>
+
+{{ form.minterms|add_class:"form-control" }}
+
+<div class="form-text">
+
+Contoh:
+
+0,1,2,5,7,8
+
+</div>
+
+</div>
+
+<div class="mb-3">
+
+<label>
+
+Don't Care
+
+</label>
+
+{{ form.dont_cares|add_class:"form-control" }}
+
+<div class="form-text">
+
+Kosongkan jika tidak ada
+
+</div>
+
+</div>
+
+<button
+class="btn btn-primary w-100">
+
+<i class="bi bi-play-fill"></i>
+
+Hitung
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-7">
+
+{% if result %}
+
+<div class="card shadow">
+
+<div class="card-header">
+
+<h4>
+
+Hasil Penyederhanaan
+
+</h4>
+
+</div>
+
+<div class="card-body">
+
+<h3 class="text-success">
+
+{{ expression }}
+
+</h3>
+
+<hr>
+
+<h5>
+
+Prime Implicants
+
+</h5>
+
+<ul>
+
+{% for p in result.prime_implicants %}
+
+<li>
+
+{{ p.bits }}
+
+→
+
+{{ p.minterms }}
+
+</li>
+
+{% endfor %}
+
+</ul>
+
+<hr>
+
+<h5>
+
+Essential Prime Implicants
+
+</h5>
+
+<ul>
+
+{% for p in result.essential_prime_implicants %}
+
+<li>
+
+{{ p.bits }}
+
+→
+
+{{ p.minterms }}
+
+</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+{% endblock %}
