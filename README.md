@@ -1,114 +1,133 @@
-# Quine-McCluskey Visualizer
+# Visualisasi Algoritma Quine-McCluskey
 
-A modern Django web application for visualizing the Quine-McCluskey minimization process step by step. It helps users simplify Boolean expressions interactively while showing the grouping, combination iterations, prime implicants, chart, essential implicants, Petrick method, and final expression in a clear, educational interface.
+Aplikasi web berbasis Django untuk memvisualisasikan proses penyederhanaan ekspresi Boolean menggunakan algoritma Quine-McCluskey secara interaktif. Aplikasi ini membantu pengguna memahami langkah-langkah penyederhanaan dari input awal hingga ekspresi akhir dengan tampilan yang modern dan edukatif.
 
-## Description
+## Deskripsi
 
-The Quine-McCluskey Visualizer is designed for students and learners who want to understand Boolean simplification in a more intuitive way. Instead of only returning a final minimized expression, the app explains how the result is derived through each logical step.
+Proyek ini dikembangkan sebagai media pembelajaran untuk memahami algoritma Quine-McCluskey secara lebih intuitif. Selain menampilkan hasil akhir, aplikasi ini juga menunjukkan proses yang terjadi di setiap tahapan, seperti pengelompokan, kombinasi, prime implicant, essential prime implicant, metode Petrick, serta ekspresi Boolean akhir.
 
-## Features
+## Screenshot
 
-- Step-by-step Quine-McCluskey visualization
-- Initial grouping display
-- Combination iteration visualization
-- Prime implicant table and chart
-- Essential prime implicant detection
-- Petrick method walkthrough
-- Final Boolean expression display
-- Input validation for duplicates, overlaps, and out-of-range values
-- Responsive Bootstrap 5 interface
-- Calculation history with view/delete options
-- Statistics card for solver metrics
+> Placeholder screenshot
+>
+> Tambahkan tangkapan layar aplikasi ke folder docs/ untuk memperjelas tampilan antarmuka.
 
-## Screenshots
+![Placeholder Screenshot](docs/screenshot.png)
 
-Screenshots can be added to the project documentation folder once available. The app is designed to display:
+## Fitur
 
-- the input form
-- the step-by-step simplification result
-- the statistics panel
-- the history page
+- Visualisasi langkah demi langkah algoritma Quine-McCluskey
+- Tampilan pengelompokan awal minterm
+- Visualisasi iterasi kombinasi
+- Tabel dan diagram prime implicant
+- Identifikasi essential prime implicant
+- Tahapan metode Petrick
+- Tampilan hasil ekspresi Boolean akhir
+- Validasi input untuk duplikat, overlap, dan nilai di luar rentang
+- Antarmuka responsif berbasis Bootstrap 5
+- Riwayat perhitungan dengan fitur lihat dan hapus
+- Panel statistik hasil komputasi
 
-## Installation
+## Cara Instalasi
 
-1. Clone the repository:
+1. Clone repository:
    ```bash
    git clone <repository-url>
    cd project
    ```
 
-2. Create and activate a virtual environment:
+2. Buat dan aktifkan virtual environment:
    ```bash
    python -m venv venv
    venv\Scripts\activate
    ```
 
-3. Install dependencies:
+3. Install dependency:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Apply database migrations:
+4. Jalankan migrasi database:
    ```bash
    python manage.py migrate
    ```
 
-## How to Run
+## Cara Menjalankan
 
-Start the development server:
+Jalankan server pengembangan:
 
 ```bash
 python manage.py runserver
 ```
 
-Then open your browser at:
+Buka browser di alamat berikut:
 
 ```text
 http://127.0.0.1:8000/
 ```
 
-## Project Structure
+## Struktur Folder
 
 ```text
 project/
-├── qm/                  # Django app for forms, views, and logic integration
-├── quinemccluskey/      # Project settings and URL configuration
-├── templates/           # HTML templates for the UI
-├── static/              # CSS and JavaScript assets
-├── docs/                # Project documentation
-├── media/               # Uploaded or generated media files
-├── db.sqlite3           # SQLite database
-└── manage.py            # Django management script
+├── qm/                  # Aplikasi Django utama untuk form, view, dan integrasi logika
+├── quinemccluskey/      # Konfigurasi proyek dan routing utama
+├── templates/           # Template HTML untuk halaman home, about, history, dan detail
+├── static/              # File CSS, JavaScript, dan aset visual
+├── docs/                # Dokumentasi proyek
+├── media/               # Direktori media aplikasi
+├── db.sqlite3           # Database SQLite
+└── manage.py            # Script manajemen Django
 ```
 
-## Algorithm Workflow
+## Workflow Algoritma
 
-The application follows this workflow:
+Aplikasi ini mengikuti workflow berikut:
 
-1. Parse and validate input values
-2. Group minterms by the number of 1s in binary form
-3. Repeatedly combine compatible terms
-4. Collect prime implicants
-5. Build the prime implicant chart
-6. Identify essential prime implicants
-7. Apply the Petrick method if needed
-8. Generate the final simplified Boolean expression
+1. Menerima dan memvalidasi input pengguna
+2. Mengelompokkan minterm berdasarkan jumlah bit 1 dalam bentuk biner
+3. Menggabungkan suku yang kompatibel secara berulang
+4. Menghasilkan prime implicant
+5. Membangun prime implicant chart
+6. Menentukan essential prime implicant
+7. Menerapkan metode Petrick bila diperlukan
+8. Menghasilkan ekspresi Boolean akhir yang tersederhana
 
-## Technologies
+## Teknologi
 
 - Python
 - Django
 - Bootstrap 5
 - SQLite
-- HTML/CSS/JavaScript
+- HTML
+- CSS
+- JavaScript
 
-## Future Improvements
+## Cara Penggunaan
 
-- Add export to PDF or image
-- Improve chart styling and animations
-- Support more advanced Boolean examples
-- Add dark mode
-- Add unit tests for more solver cases
+1. Buka halaman utama aplikasi.
+2. Masukkan jumlah variabel, minterm, dan don't care.
+3. Klik tombol untuk memulai proses penyederhanaan.
+4. Lihat hasil visualisasi langkah demi langkah yang ditampilkan.
+5. Buka halaman riwayat untuk melihat hasil perhitungan sebelumnya.
+
+## Contoh Input
+
+Contoh sederhana:
+
+```text
+Jumlah Variabel: 4
+Minterm: 0,1,2,5,7,8
+Don't Care: 3,4
+```
+
+Contoh kompleks:
+
+```text
+Jumlah Variabel: 4
+Minterm: 0,1,2,5,6,7,8,9,10,14
+Don't Care: -
+```
 
 ## Author
 

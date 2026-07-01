@@ -84,6 +84,24 @@ body {
     box-shadow: 0 0.75rem 1.5rem rgba(15, 23, 42, 0.1);
 }
 
+.section-card {
+    border: 1px solid rgba(37, 99, 235, 0.08);
+}
+
+.hero-actions .btn {
+    min-width: 11rem;
+}
+
+.result-banner {
+    border-left: 4px solid #2563eb;
+    background: linear-gradient(135deg, rgba(222, 242, 254, 0.7) 0%, rgba(239, 246, 255, 0.95) 100%);
+}
+
+.p-3.rounded-3.bg-light.h-100 {
+    background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 100%) !important;
+    border: 1px solid #e5ecff;
+}
+
 .btn {
     border-radius: 0.8rem;
     padding: 0.7rem 1.1rem;
@@ -232,6 +250,16 @@ h1, h2, h3, h4, h5, h6 {
         padding-left: 1rem !important;
         padding-right: 1rem !important;
         margin-top: 0.2rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        min-width: 0;
     }
 
     .hero-section .display-5 {
