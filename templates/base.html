@@ -68,15 +68,13 @@ class="collapse navbar-collapse"
 id="menu"
 >
 
-<ul class="navbar-nav ms-auto">
+<ul class="navbar-nav ms-auto align-items-lg-center gap-1">
 
 <li class="nav-item">
 
-<a
-class="nav-link"
-href="/"
->
+<a class="nav-link px-3 py-2 rounded-pill{% if request.path == '/' %} active{% endif %}" href="/">
 
+<i class="bi bi-house me-2"></i>
 Beranda
 
 </a>
@@ -85,12 +83,10 @@ Beranda
 
 <li class="nav-item">
 
-<a
-class="nav-link"
-href="/about/"
->
+<a class="nav-link px-3 py-2 rounded-pill{% if request.path == '/history/' %} active{% endif %}" href="/history/">
 
-Tentang
+<i class="bi bi-clock-history me-2"></i>
+Riwayat
 
 </a>
 
@@ -98,12 +94,10 @@ Tentang
 
 <li class="nav-item">
 
-<a
-class="nav-link"
-href="/history/"
->
+<a class="nav-link px-3 py-2 rounded-pill{% if request.path == '/about/' %} active{% endif %}" href="/about/">
 
-Riwayat
+<i class="bi bi-info-circle me-2"></i>
+Tentang
 
 </a>
 

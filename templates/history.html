@@ -54,7 +54,17 @@
         </table>
       </div>
     {% else %}
-      <div class="alert alert-info mb-0">Belum ada riwayat perhitungan.</div>
+      <div class="empty-state text-center py-5 px-3 rounded-4 border border-dashed">
+        <div class="empty-state-icon mb-3">
+          <i class="bi bi-clock-history"></i>
+        </div>
+        <h5 class="fw-semibold mb-2">Belum ada riwayat perhitungan.</h5>
+        <p class="text-muted mb-4">Belum ada hasil yang tersimpan. Mulai visualisasi untuk melihat riwayat perhitungan Anda di sini.</p>
+        <a href="/" class="btn btn-primary">
+          <i class="bi bi-house me-2"></i>
+          Kembali ke Beranda
+        </a>
+      </div>
     {% endif %}
   </div>
 </div>

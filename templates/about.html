@@ -5,125 +5,136 @@
   <div class="col-12">
     <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
       <div class="card-header bg-gradient text-white py-4 border-0" style="background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);">
-        <h2 class="mb-1 fw-semibold">Tentang Quine-McCluskey</h2>
-        <p class="mb-0 text-white-50">Pendekatan praktis untuk menyederhanakan ekspresi Boolean.</p>
+        <h2 class="mb-2 fw-semibold">Tentang Aplikasi</h2>
+        <p class="mb-0 text-white-50">Aplikasi ini membantu Anda memahami algoritma Quine-McCluskey secara visual, interaktif, dan mudah dipelajari.</p>
       </div>
-      <div class="card-body p-4">
-        <div class="row g-4">
-          <div class="col-12 col-lg-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <h4 class="card-title"><i class="bi bi-diagram-3-fill text-primary me-2"></i>Apa itu Quine-McCluskey?</h4>
-                <p class="text-muted mb-0">Quine-McCluskey adalah metode tabular yang digunakan dalam desain logika digital untuk menyederhanakan ekspresi Boolean dengan meminimalkan jumlah literal dan suku. Metode ini sangat berguna untuk menangani tabel kebenaran yang lebih besar secara sistematis.</p>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-12 col-lg-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <h4 class="card-title"><i class="bi bi-play-circle-fill text-primary me-2"></i>Alur Algoritma</h4>
-                <ul class="mb-0 text-muted">
-                  <li>Mengelompokkan minterm berdasarkan jumlah angka 1 dalam bentuk biner</li>
-                  <li>Menggabungkan suku yang kompatibel secara berulang</li>
-                  <li>Menghasilkan prime implicant</li>
-                  <li>Membangun dan menganalisis tabel prime implicant</li>
-                  <li>Mengidentifikasi essential implicant dan menerapkan metode Petrick jika diperlukan</li>
-                </ul>
-              </div>
+      <div class="card-body p-4 p-lg-5">
+        <section class="mb-5">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-7">
+              <h3 class="fw-semibold mb-3"><i class="bi bi-lightbulb-fill text-primary me-2"></i>Tujuan Aplikasi</h3>
+              <ul class="text-muted mb-0 ps-3">
+                <li>Membantu memahami algoritma Quine-McCluskey.</li>
+                <li>Menampilkan proses penyederhanaan secara bertahap.</li>
+                <li>Menjadi media pembelajaran interaktif.</li>
+              </ul>
             </div>
-          </div>
-
-          <div class="col-12 col-lg-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <h4 class="card-title"><i class="bi bi-check2-circle-fill text-success me-2"></i>Kelebihan</h4>
-                <ul class="mb-0 text-muted">
-                  <li>Menghasilkan ekspresi Boolean yang lebih sederhana</li>
-                  <li>Cocok untuk penyederhanaan manual maupun otomatis</li>
-                  <li>Mudah divisualisasikan langkah demi langkah</li>
-                  <li> Membantu memahami desain rangkaian digital</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-lg-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <h4 class="card-title"><i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>Keterbatasan</h4>
-                <ul class="mb-0 text-muted">
-                  <li>Dapat menjadi panjang untuk himpunan input yang sangat besar</li>
-                  <li>Memerlukan penanganan yang hati-hati untuk suku don't-care</li>
-                  <li>Paling cocok untuk tugas minimisasi logika yang terstruktur</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <h4 class="card-title"><i class="bi bi-speedometer2 text-primary me-2"></i>Kompleksitas Waktu</h4>
-                <p class="text-muted mb-0">Metode ini dapat berkembang pesat seiring bertambahnya jumlah variabel dan suku, sehingga lebih praktis untuk masalah Boolean berukuran menengah.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <h4 class="card-title"><i class="bi bi-memory text-primary me-2"></i>Kompleksitas Ruang</h4>
-                <p class="text-muted mb-0">Algoritma ini memerlukan penyimpanan untuk suku yang dikelompokkan, prime implicant, dan struktur tabel, sehingga kebutuhan ruang meningkat seiring ukuran input.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12">
-            <div class="card border-0 shadow-sm">
-              <div class="card-body">
-                <h4 class="card-title"><i class="bi bi-tools text-primary me-2"></i>Teknologi yang Digunakan</h4>
-                <div class="row g-3 mt-1">
-                  <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="p-3 rounded-3 bg-light">Python</div>
+            <div class="col-lg-5">
+              <div class="card border-0 shadow-sm rounded-4 h-100">
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="feature-icon"><i class="bi bi-diagram-3-fill"></i></div>
+                    <div>
+                      <h5 class="mb-0">Quine-McCluskey</h5>
+                      <p class="text-muted mb-0 small">Visualisasi algoritma Boolean</p>
+                    </div>
                   </div>
-                  <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="p-3 rounded-3 bg-light">Django</div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="p-3 rounded-3 bg-light">Bootstrap 5</div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="p-3 rounded-3 bg-light">SQLite</div>
-                  </div>
+                  <p class="text-muted mb-0">Aplikasi ini menyajikan alur penyederhanaan ekspresi Boolean dengan tampilan yang lebih intuitif dan edukatif.</p>
                 </div>
               </div>
             </div>
           </div>
+        </section>
 
-          <div class="col-12">
-            <div class="card border-0 shadow-sm">
-              <div class="card-body">
-                <h4 class="card-title"><i class="bi bi-stars text-primary me-2"></i>Fitur Proyek</h4>
-                <ul class="mb-0 text-muted">
-                  <li>Visualisasi Quine-McCluskey interaktif</li>
-                  <li>Validasi untuk input yang tidak valid</li>
-                  <li>Antarmuka responsif yang modern</li>
-                  <li>Riwayat perhitungan dan statistik</li>
-                  <li>Penjelasan langkah demi langkah proses penyederhanaan</li>
-                </ul>
+        <section class="mb-5">
+          <h3 class="fw-semibold mb-4"><i class="bi bi-stars text-primary me-2"></i>Fitur Utama</h3>
+          <div class="row g-4">
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body p-4">
+                  <div class="feature-icon mb-3"><i class="bi bi-check2-square"></i></div>
+                  <h5 class="fw-semibold mb-2">Penyederhanaan Boolean</h5>
+                  <p class="text-muted mb-0">Memproses minterm dan don't care untuk menghasilkan bentuk sederhana.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body p-4">
+                  <div class="feature-icon mb-3"><i class="bi bi-list-ol"></i></div>
+                  <h5 class="fw-semibold mb-2">Step-by-Step Visualization</h5>
+                  <p class="text-muted mb-0">Menampilkan alur penyederhanaan langkah demi langkah secara sistematis.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body p-4">
+                  <div class="feature-icon mb-3"><i class="bi bi-table"></i></div>
+                  <h5 class="fw-semibold mb-2">Prime Implicant Chart</h5>
+                  <p class="text-muted mb-0">Menampilkan tabel yang membantu menganalisis kandidat solusi.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body p-4">
+                  <div class="feature-icon mb-3"><i class="bi bi-shield-check"></i></div>
+                  <h5 class="fw-semibold mb-2">Essential Prime Implicant</h5>
+                  <p class="text-muted mb-0">Mengidentifikasi implicant penting dalam penyelesaian akhir.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body p-4">
+                  <div class="feature-icon mb-3"><i class="bi bi-bezier2"></i></div>
+                  <h5 class="fw-semibold mb-2">Petrick Method</h5>
+                  <p class="text-muted mb-0">Memudahkan pencarian solusi optimal menggunakan metode Petrick.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body p-4">
+                  <div class="feature-icon mb-3"><i class="bi bi-clock-history"></i></div>
+                  <h5 class="fw-semibold mb-2">Riwayat Perhitungan</h5>
+                  <p class="text-muted mb-0">Menyimpan dan menampilkan hasil sebelumnya untuk pembelajaran.</p>
+                </div>
               </div>
             </div>
           </div>
+        </section>
 
-          <div class="col-12">
-            <div class="card border-0 shadow-sm">
-              <div class="card-body">
-                <h4 class="card-title"><i class="bi bi-person-badge-fill text-primary me-2"></i>Informasi Pengembang</h4>
-                <p class="text-muted mb-0">Dibuat sebagai proyek web berbasis pembelajaran untuk mendemonstrasikan algoritma Quine-McCluskey dengan antarmuka yang modern dan mudah digunakan.</p>
+        <section class="mb-5">
+          <h3 class="fw-semibold mb-4"><i class="bi bi-tools text-primary me-2"></i>Teknologi</h3>
+          <div class="row g-3">
+            <div class="col-6 col-md-4 col-lg-2"><div class="p-3 rounded-3 bg-light text-center fw-semibold">Python</div></div>
+            <div class="col-6 col-md-4 col-lg-2"><div class="p-3 rounded-3 bg-light text-center fw-semibold">Django</div></div>
+            <div class="col-6 col-md-4 col-lg-2"><div class="p-3 rounded-3 bg-light text-center fw-semibold">SQLite</div></div>
+            <div class="col-6 col-md-4 col-lg-2"><div class="p-3 rounded-3 bg-light text-center fw-semibold">Bootstrap 5</div></div>
+            <div class="col-6 col-md-4 col-lg-2"><div class="p-3 rounded-3 bg-light text-center fw-semibold">HTML</div></div>
+            <div class="col-6 col-md-4 col-lg-2"><div class="p-3 rounded-3 bg-light text-center fw-semibold">CSS</div></div>
+            <div class="col-6 col-md-4 col-lg-2"><div class="p-3 rounded-3 bg-light text-center fw-semibold">JavaScript</div></div>
+          </div>
+        </section>
+
+        <section class="mb-4">
+          <h3 class="fw-semibold mb-4"><i class="bi bi-diagram-2 text-primary me-2"></i>Workflow Algoritma</h3>
+          <div class="card border-0 shadow-sm rounded-4">
+            <div class="card-body p-4">
+              <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+                <span class="badge rounded-pill bg-primary px-3 py-2">Input</span>
+                <i class="bi bi-arrow-down text-primary"></i>
+                <span class="badge rounded-pill bg-primary px-3 py-2">Grouping</span>
+                <i class="bi bi-arrow-down text-primary"></i>
+                <span class="badge rounded-pill bg-primary px-3 py-2">Combination</span>
+                <i class="bi bi-arrow-down text-primary"></i>
+                <span class="badge rounded-pill bg-primary px-3 py-2">Prime Implicant</span>
+                <i class="bi bi-arrow-down text-primary"></i>
+                <span class="badge rounded-pill bg-primary px-3 py-2">Essential Prime Implicant</span>
+                <i class="bi bi-arrow-down text-primary"></i>
+                <span class="badge rounded-pill bg-primary px-3 py-2">Petrick Method</span>
+                <i class="bi bi-arrow-down text-primary"></i>
+                <span class="badge rounded-pill bg-primary px-3 py-2">Final Boolean Expression</span>
               </div>
             </div>
           </div>
+        </section>
+
+        <div class="text-center text-muted small border-top pt-4 mt-4">
+          Dibuat sebagai media pembelajaran Algoritma Quine-McCluskey.
         </div>
       </div>
     </div>

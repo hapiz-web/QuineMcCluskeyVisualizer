@@ -16,12 +16,24 @@ body {
 }
 
 .nav-link {
-    font-weight: 500;
-    transition: opacity 0.2s ease;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    color: rgba(255,255,255,0.92) !important;
 }
 
-.nav-link:hover {
-    opacity: 0.85;
+.nav-link:hover,
+.nav-link.active {
+    opacity: 1;
+    background: rgba(255,255,255,0.16);
+    color: #ffffff !important;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-nav {
+    gap: 0.2rem;
 }
 
 .qm-visual-card {
@@ -189,10 +201,37 @@ h1, h2, h3, h4, h5, h6 {
     backdrop-filter: blur(8px);
 }
 
+.empty-state {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(79, 70, 229, 0.03) 100%);
+}
+
+.empty-state-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+    color: white;
+    font-size: 1.4rem;
+    box-shadow: 0 0.35rem 0.9rem rgba(79, 70, 229, 0.2);
+}
+
 @media (max-width: 768px) {
     .container {
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+
+    .navbar-nav {
+        padding-top: 0.5rem;
+    }
+
+    .nav-link {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        margin-top: 0.2rem;
     }
 
     .hero-section .display-5 {
