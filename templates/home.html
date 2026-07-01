@@ -234,12 +234,9 @@
 
 </div>
 
-<button class="btn btn-primary w-100 btn-lg shadow-sm mt-2">
-
-<i class="bi bi-play-fill"></i>
-
-Sederhanakan
-
+<button type="submit" class="btn btn-primary w-100 btn-lg shadow-sm mt-2" id="submit-btn">
+  <span class="spinner-border spinner-border-sm me-2 d-none" id="submit-spinner" role="status" aria-hidden="true"></span>
+  <span id="submit-label">Sederhanakan</span>
 </button>
 
 </form>
@@ -254,11 +251,12 @@ Sederhanakan
 
 {% if result %}
 
-<div class="card shadow-lg border-0 rounded-4 overflow-hidden qm-visual-card">
+<div class="card shadow-lg border-0 rounded-4 overflow-hidden qm-visual-card" id="hasil-penyederhanaan">
 
 <div class="card-header bg-white py-4 border-0">
 
-<h4 class="mb-0 fw-semibold">Visualisasi Langkah Demi Langkah</h4>
+<h4 class="mb-0 fw-semibold">Hasil Penyederhanaan</h4>
+<p class="text-muted mb-0 mt-2">Visualisasi Langkah Demi Langkah</p>
 
 </div>
 
@@ -766,6 +764,32 @@ Sederhanakan
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('form[method="post"]');
+  const submitButton = document.getElementById('submit-btn');
+  const submitSpinner = document.getElementById('submit-spinner');
+  const submitLabel = document.getElementById('submit-label');
+
+  if (form && submitButton && submitSpinner && submitLabel) {
+    form.addEventListener('submit', function (event) {
+      if (submitButton.disabled) {
+        event.preventDefault();
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.classList.add('disabled');
+      submitSpinner.classList.remove('d-none');
+      submitLabel.textContent = 'Menghitung...';
+    });
+  }
+
+  const resultSection = document.getElementById('hasil-penyederhanaan');
+  if (resultSection) {
+    window.setTimeout(function () {
+      resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 180);
+  }
+
   const examples = {
     simple: {
       variable_count: '4',
