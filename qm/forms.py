@@ -12,7 +12,8 @@ class QuineMcCluskeyForm(forms.Form):
     minterms = forms.CharField(
         widget=forms.Textarea(
             attrs={
-                "rows": 3
+                "rows": 3,
+                "placeholder": "Contoh: 0,1,2,5"
             }
         )
     )
@@ -21,7 +22,71 @@ class QuineMcCluskeyForm(forms.Form):
         required=False,
         widget=forms.Textarea(
             attrs={
-                "rows": 3
+                "rows": 3,
+                "placeholder": "Contoh: 3,4"
             }
         )
     )
+
+    def _parse_numbers(self, value):
+        if not value or not str(value).strip():
+            return []
+
+        items = []
+        for raw_item in str(value).replace(" ", "").split(","):
+            if not raw_item:
+                continue
+            try:
+                items.append(int(raw_item))
+            except ValueError:
+                raise forms.ValidationError("Only integers separated by commas are allowed")
+
+        return items
+
+    def clean(self):
+        cleaned_data = super().clean()
+        variable_count = cleaned_data.get("variable_count")
+        minterms = cleaned_data.get("minterms")
+        dont_cares = cleaned_data.get("dont_cares")
+
+        if variable_count is None:
+            return cleaned_data
+
+        if minterms is None:
+            minterms = ""
+        if dont_cares is None:
+            dont_cares = ""
+
+        try:
+            parsed_minterms = self._parse_numbers(minterms)
+            parsed_dont_cares = self._parse_numbers(dont_cares)
+        except forms.ValidationError as exc:
+            raise exc
+
+        error_messages = []
+
+        if parsed_minterms:
+            duplicates = sorted({value for value in parsed_minterms if parsed_minterms.count(value) > 1})
+            if duplicates:
+                error_messages.append("Duplicate minterms are not allowed")
+
+        if parsed_dont_cares:
+            duplicates = sorted({value for value in parsed_dont_cares if parsed_dont_cares.count(value) > 1})
+            if duplicates:
+                error_messages.append("Duplicate don't care values are not allowed")
+
+        max_value = (2 ** variable_count) - 1
+        for value in parsed_minterms + parsed_dont_cares:
+            if value < 0 or value > max_value:
+                error_messages.append(f"Value {value} is outside the allowed range (0 to {max_value})")
+
+        overlap = sorted(set(parsed_minterms) & set(parsed_dont_cares))
+        if overlap:
+            error_messages.append("Minterms and don't cares cannot overlap")
+
+        if error_messages:
+            raise forms.ValidationError(error_messages)
+
+        cleaned_data["parsed_minterms"] = sorted(set(parsed_minterms))
+        cleaned_data["parsed_dont_cares"] = sorted(set(parsed_dont_cares))
+        return cleaned_data

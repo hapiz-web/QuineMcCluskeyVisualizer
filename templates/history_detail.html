@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card shadow">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h4 class="mb-0">Detail Perhitungan</h4>
+    <a href="{% url 'history' %}" class="btn btn-outline-secondary btn-sm">Kembali</a>
+  </div>
+  <div class="card-body">
+    <dl class="row">
+      <dt class="col-sm-3">ID</dt>
+      <dd class="col-sm-9">{{ item.pk }}</dd>
+
+      <dt class="col-sm-3">Jumlah Variabel</dt>
+      <dd class="col-sm-9">{{ item.variable_count }}</dd>
+
+      <dt class="col-sm-3">Minterm</dt>
+      <dd class="col-sm-9">{{ item.minterms }}</dd>
+
+      <dt class="col-sm-3">Don't Care</dt>
+      <dd class="col-sm-9">{{ item.dont_cares|default:"-" }}</dd>
+
+      <dt class="col-sm-3">Hasil Sederhana</dt>
+      <dd class="col-sm-9">{{ item.simplified_expression }}</dd>
+
+      <dt class="col-sm-3">Waktu Eksekusi</dt>
+      <dd class="col-sm-9">{{ item.execution_time|floatformat:4 }} s</dd>
+
+      <dt class="col-sm-3">Dibuat</dt>
+      <dd class="col-sm-9">{{ item.created_at }}</dd>
+    </dl>
+  </div>
+</div>
+{% endblock %}

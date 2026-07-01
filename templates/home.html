@@ -4,80 +4,93 @@
 
 {% block content %}
 
-<div class="row">
+<div class="row g-4">
 
 <div class="col-lg-5">
 
-<div class="card shadow">
+<div class="card shadow-lg border-0 rounded-4 overflow-hidden">
 
-<div class="card-header">
+<div class="card-header bg-gradient text-white py-4 border-0" style="background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);">
 
-<h4>
+<h4 class="mb-0 fw-semibold">Quine McCluskey Calculator</h4>
 
-Quine McCluskey Calculator
-
-</h4>
+<p class="mb-0 mt-2 text-white-50">Enter minterms and don't cares to simplify your boolean expression with a polished step-by-step view.</p>
 
 </div>
 
-<div class="card-body">
+<div class="card-body p-4">
 
-<form method="post">
+{% if form.non_field_errors %}
+
+<div class="alert alert-danger d-flex align-items-start gap-2" role="alert">
+
+<i class="bi bi-exclamation-triangle-fill mt-1"></i>
+
+<div>
+
+{% for error in form.non_field_errors %}
+
+<div>{{ error|safe }}</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+{% endif %}
+
+<form method="post" novalidate>
 
 {% csrf_token %}
 
 <div class="mb-3">
 
-<label>
+<label class="form-label fw-semibold">Jumlah Variabel</label>
 
-Jumlah Variabel
+{{ form.variable_count|add_class:"form-control form-control-lg" }}
 
-</label>
+{% if form.variable_count.errors %}
 
-{{ form.variable_count|add_class:"form-control" }}
+<div class="text-danger small mt-1">{{ form.variable_count.errors|join:", " }}</div>
+
+{% endif %}
 
 </div>
 
 <div class="mb-3">
 
-<label>
-
-Minterm
-
-</label>
+<label class="form-label fw-semibold">Minterm</label>
 
 {{ form.minterms|add_class:"form-control" }}
 
-<div class="form-text">
+<div class="form-text">Contoh: 0,1,2,5,7,8</div>
 
-Contoh:
+{% if form.minterms.errors %}
 
-0,1,2,5,7,8
+<div class="text-danger small mt-1">{{ form.minterms.errors|join:", " }}</div>
 
-</div>
+{% endif %}
 
 </div>
 
 <div class="mb-3">
 
-<label>
-
-Don't Care
-
-</label>
+<label class="form-label fw-semibold">Don't Care</label>
 
 {{ form.dont_cares|add_class:"form-control" }}
 
-<div class="form-text">
+<div class="form-text">Kosongkan jika tidak ada</div>
 
-Kosongkan jika tidak ada
+{% if form.dont_cares.errors %}
+
+<div class="text-danger small mt-1">{{ form.dont_cares.errors|join:", " }}</div>
+
+{% endif %}
 
 </div>
 
-</div>
-
-<button
-class="btn btn-primary w-100">
+<button class="btn btn-primary w-100 btn-lg shadow-sm mt-2">
 
 <i class="bi bi-play-fill"></i>
 
@@ -97,77 +110,505 @@ Hitung
 
 {% if result %}
 
-<div class="card shadow">
+<div class="card shadow-lg border-0 rounded-4 overflow-hidden qm-visual-card">
 
-<div class="card-header">
+<div class="card-header bg-white py-4 border-0">
 
-<h4>
+<h4 class="mb-0 fw-semibold">Step-by-step Visualization</h4>
 
-Hasil Penyederhanaan
+</div>
 
-</h4>
+<div class="card-body p-4">
+
+<div class="alert alert-success mb-4">
+
+<h3 class="mb-0">{{ expression }}</h3>
+
+</div>
+
+{% if stats %}
+
+<div class="card border-0 shadow-sm mb-4">
+
+<div class="card-body">
+
+<h5 class="card-title mb-3">Statistics</h5>
+
+<div class="row g-3">
+
+<div class="col-12 col-sm-6 col-lg-4">
+
+<div class="p-3 rounded-3 bg-light h-100">
+
+<div class="text-muted small">Number of Variables</div>
+
+<div class="fw-bold fs-5">{{ stats.variables }}</div>
+
+</div>
+
+</div>
+
+<div class="col-12 col-sm-6 col-lg-4">
+
+<div class="p-3 rounded-3 bg-light h-100">
+
+<div class="text-muted small">Number of Minterms</div>
+
+<div class="fw-bold fs-5">{{ stats.minterms }}</div>
+
+</div>
+
+</div>
+
+<div class="col-12 col-sm-6 col-lg-4">
+
+<div class="p-3 rounded-3 bg-light h-100">
+
+<div class="text-muted small">Number of Don't Care terms</div>
+
+<div class="fw-bold fs-5">{{ stats.dont_cares }}</div>
+
+</div>
+
+</div>
+
+<div class="col-12 col-sm-6 col-lg-4">
+
+<div class="p-3 rounded-3 bg-light h-100">
+
+<div class="text-muted small">Number of Prime Implicants</div>
+
+<div class="fw-bold fs-5">{{ stats.prime_implicants }}</div>
+
+</div>
+
+</div>
+
+<div class="col-12 col-sm-6 col-lg-4">
+
+<div class="p-3 rounded-3 bg-light h-100">
+
+<div class="text-muted small">Number of Essential Prime Implicants</div>
+
+<div class="fw-bold fs-5">{{ stats.essential_prime_implicants }}</div>
+
+</div>
+
+</div>
+
+<div class="col-12 col-sm-6 col-lg-4">
+
+<div class="p-3 rounded-3 bg-light h-100">
+
+<div class="text-muted small">Number of Iterations</div>
+
+<div class="fw-bold fs-5">{{ stats.iterations }}</div>
+
+</div>
+
+</div>
+
+<div class="col-12 col-sm-6 col-lg-4">
+
+<div class="p-3 rounded-3 bg-light h-100">
+
+<div class="text-muted small">Execution Time (ms)</div>
+
+<div class="fw-bold fs-5">{{ stats.execution_time_ms }}</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endif %}
+
+<div class="row g-4">
+
+<div class="col-12">
+
+<div class="card h-100 border-0 shadow-sm">
+
+<div class="card-header bg-light border-0">
+
+<h5 class="mb-0">1. Initial Grouping</h5>
 
 </div>
 
 <div class="card-body">
 
-<h3 class="text-success">
+{% if visualization.initial_groups %}
 
-{{ expression }}
+<div class="table-responsive">
 
-</h3>
+<table class="table table-bordered align-middle mb-0">
 
-<hr>
+<thead>
 
-<h5>
+<tr>
 
-Prime Implicants
+<th>Group</th>
 
-</h5>
+<th>Implicants</th>
 
-<ul>
+</tr>
 
-{% for p in result.prime_implicants %}
+</thead>
 
-<li>
+<tbody>
 
-{{ p.bits }}
+{% for group in visualization.initial_groups %}
 
-→
+<tr>
 
-{{ p.minterms }}
+<td>{{ group.count }}</td>
 
-</li>
+<td>
+
+{% for implicant in group.implicants %}
+
+<span class="qm-badge mb-1">{{ implicant.bits }} → {{ implicant.minterms }}</span>
+
+{% endfor %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% else %}
+
+<p class="text-muted mb-0">No initial grouping available.</p>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</div>
+
+{% if visualization.combination_iterations %}
+
+{% for iteration in visualization.combination_iterations %}
+
+<div class="col-12">
+
+<div class="card h-100 border-0 shadow-sm">
+
+<div class="card-header bg-light border-0">
+
+<h5 class="mb-0">{{ forloop.counter|add:1 }}. Combination Iteration {{ iteration.iteration }}</h5>
+
+</div>
+
+<div class="card-body">
+
+<div class="row g-3">
+
+{% for group in iteration.groups %}
+
+<div class="col-12 col-lg-6">
+
+<div class="border rounded p-3 h-100">
+
+<p class="fw-semibold mb-2">Group {{ group.count }}</p>
+
+{% for implicant in group.implicants %}
+
+<div class="qm-badge mb-1">{{ implicant.bits }} → {{ implicant.minterms }}</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+{% empty %}
+
+<div class="col-12">
+
+<p class="text-muted mb-0">No further groups were produced in this iteration.</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="col-12">
+
+<div class="card h-100 border-0 shadow-sm">
+
+<div class="card-header bg-light border-0">
+
+<h5 class="mb-0">2. Combination Iteration 1</h5>
+
+</div>
+
+<div class="card-body">
+
+<p class="text-muted mb-0">No combination iterations were needed.</p>
+
+</div>
+
+</div>
+
+</div>
+
+{% endif %}
+
+<div class="col-12">
+
+<div class="card h-100 border-0 shadow-sm">
+
+<div class="card-header bg-light border-0">
+
+<h5 class="mb-0">5. Prime Implicant Table</h5>
+
+</div>
+
+<div class="card-body">
+
+<div class="table-responsive">
+
+<table class="table table-striped table-hover align-middle mb-0">
+
+<thead>
+
+<tr>
+
+<th>Implicant</th>
+
+<th>Minterms</th>
+
+<th>Covered Terms</th>
+
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for row in visualization.prime_table %}
+
+<tr>
+
+<td>{{ row.bits }}</td>
+
+<td>{{ row.minterms }}</td>
+
+<td>{{ row.covered_terms }}</td>
+
+<td>{% if row.selected %}<span class="badge bg-success">Selected</span>{% else %}<span class="badge bg-secondary">Candidate</span>{% endif %}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-12">
+
+<div class="card h-100 border-0 shadow-sm">
+
+<div class="card-header bg-light border-0">
+
+<h5 class="mb-0">6. Prime Implicant Chart</h5>
+
+</div>
+
+<div class="card-body">
+
+<div class="table-responsive">
+
+<table class="table table-bordered table-hover align-middle mb-0">
+
+<thead>
+
+<tr>
+
+<th>Minterm</th>
+
+{% for header in visualization.prime_chart.headers %}
+
+<th>{{ header }}</th>
+
+{% endfor %}
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for row in visualization.prime_chart.rows %}
+
+<tr>
+
+<td>{{ row.minterm }}</td>
+
+{% for covered in row.covers %}
+
+<td>{% if covered %}<span class="badge bg-success">✓</span>{% else %}<span class="badge bg-light text-dark">—</span>{% endif %}</td>
+
+{% endfor %}
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-12">
+
+<div class="card h-100 border-0 shadow-sm">
+
+<div class="card-header bg-light border-0">
+
+<h5 class="mb-0">7. Essential Prime Implicant</h5>
+
+</div>
+
+<div class="card-body">
+
+{% if visualization.essential_items %}
+
+<ul class="mb-0">
+
+{% for item in visualization.essential_items %}
+
+<li><strong>{{ item.bits }}</strong> covers {{ item.covered_terms }}</li>
 
 {% endfor %}
 
 </ul>
 
-<hr>
+{% else %}
 
-<h5>
+<p class="text-muted mb-0">No essential prime implicants were required.</p>
 
-Essential Prime Implicants
+{% endif %}
 
-</h5>
+</div>
 
-<ul>
+</div>
 
-{% for p in result.essential_prime_implicants %}
+</div>
 
-<li>
+<div class="col-12">
 
-{{ p.bits }}
+<div class="card h-100 border-0 shadow-sm">
 
-→
+<div class="card-header bg-light border-0">
 
-{{ p.minterms }}
+<h5 class="mb-0">8. Petrick Method</h5>
 
-</li>
+</div>
+
+<div class="card-body">
+
+{% if visualization.petrick_steps %}
+
+{% for step in visualization.petrick_steps %}
+
+<div class="border rounded p-3 mb-3">
+
+<p class="fw-semibold mb-2">{{ step.title }}</p>
+
+{% if step.best %}
+
+<p class="mb-2"><strong>Best cover:</strong> {{ step.best }}</p>
+
+{% endif %}
+
+{% for candidate in step.candidates %}
+
+<div class="qm-badge mb-1">{{ candidate }}</div>
 
 {% endfor %}
 
-</ul>
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<p class="text-muted mb-0">No Petrick method steps were required.</p>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-12">
+
+<div class="card h-100 border-0 shadow-sm">
+
+<div class="card-header bg-light border-0">
+
+<h5 class="mb-0">9. Final Boolean Expression</h5>
+
+</div>
+
+<div class="card-body">
+
+<h4 class="text-success mb-0">{{ visualization.final_expression }}</h4>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
