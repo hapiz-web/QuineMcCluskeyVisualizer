@@ -137,6 +137,21 @@
 
 <div class="col-lg-5">
 
+<div class="card shadow-sm border-0 rounded-4 mb-4">
+  <div class="card-body p-4">
+    <div class="d-flex align-items-center gap-2 mb-3">
+      <div class="feature-icon"><i class="bi bi-journal-text"></i></div>
+      <h5 class="mb-0 fw-semibold">📚 Contoh Cepat</h5>
+    </div>
+    <p class="text-muted small mb-3">Pilih contoh untuk mengisi formulir dengan data yang sudah disiapkan.</p>
+    <div class="d-grid gap-2">
+      <button type="button" class="btn btn-outline-primary" data-example="simple">Contoh Sederhana</button>
+      <button type="button" class="btn btn-outline-primary" data-example="complex">Contoh Kompleks</button>
+      <button type="button" class="btn btn-outline-primary" data-example="petrick">Contoh Petrick Method</button>
+    </div>
+  </div>
+</div>
+
 <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
 
 <div class="card-header bg-gradient text-white py-4 border-0" style="background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);">
@@ -748,5 +763,60 @@ Sederhanakan
 </div>
 
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const examples = {
+    simple: {
+      variable_count: '4',
+      minterms: '0,1,2,5,7,8',
+      dont_cares: '3,4'
+    },
+    complex: {
+      variable_count: '4',
+      minterms: '0,1,2,5,6,7,8,9,10,14',
+      dont_cares: ''
+    },
+    petrick: {
+      variable_count: '4',
+      minterms: '1,2,5,6,9,10,13,14',
+      dont_cares: ''
+    }
+  };
+
+  function getField(fieldId, fieldName) {
+    return document.getElementById(fieldId) || document.querySelector('[name="' + fieldName + '"]');
+  }
+
+  document.querySelectorAll('[data-example]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      const exampleKey = this.getAttribute('data-example');
+      const example = examples[exampleKey];
+
+      if (!example) {
+        return;
+      }
+
+      const variableField = getField('id_variable_count', 'variable_count');
+      const mintermsField = getField('id_minterms', 'minterms');
+      const dontCaresField = getField('id_dont_cares', 'dont_cares');
+
+      if (variableField) {
+        variableField.value = example.variable_count;
+      }
+      if (mintermsField) {
+        mintermsField.value = example.minterms;
+      }
+      if (dontCaresField) {
+        dontCaresField.value = example.dont_cares;
+      }
+
+      if (variableField) {
+        variableField.focus();
+      }
+    });
+  });
+});
+</script>
 
 {% endblock %}
