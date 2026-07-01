@@ -304,6 +304,16 @@ def home(request):
     )
 
 
+def about(request):
+    return render(
+        request,
+        "about.html",
+        {
+            "page_title": "About Quine-McCluskey",
+        },
+    )
+
+
 def history(request):
 
     calculations = CalculationHistory.objects.all()

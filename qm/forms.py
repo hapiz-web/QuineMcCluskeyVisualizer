@@ -39,7 +39,7 @@ class QuineMcCluskeyForm(forms.Form):
             try:
                 items.append(int(raw_item))
             except ValueError:
-                raise forms.ValidationError("Only integers separated by commas are allowed")
+                raise forms.ValidationError("Hanya bilangan bulat yang dipisahkan koma yang diperbolehkan")
 
         return items
 
@@ -68,21 +68,21 @@ class QuineMcCluskeyForm(forms.Form):
         if parsed_minterms:
             duplicates = sorted({value for value in parsed_minterms if parsed_minterms.count(value) > 1})
             if duplicates:
-                error_messages.append("Duplicate minterms are not allowed")
+                error_messages.append("Minterm duplikat tidak diperbolehkan")
 
         if parsed_dont_cares:
             duplicates = sorted({value for value in parsed_dont_cares if parsed_dont_cares.count(value) > 1})
             if duplicates:
-                error_messages.append("Duplicate don't care values are not allowed")
+                error_messages.append("Nilai don't care duplikat tidak diperbolehkan")
 
         max_value = (2 ** variable_count) - 1
         for value in parsed_minterms + parsed_dont_cares:
             if value < 0 or value > max_value:
-                error_messages.append(f"Value {value} is outside the allowed range (0 to {max_value})")
+                error_messages.append(f"Nilai {value} di luar rentang yang diperbolehkan (0 sampai {max_value})")
 
         overlap = sorted(set(parsed_minterms) & set(parsed_dont_cares))
         if overlap:
-            error_messages.append("Minterms and don't cares cannot overlap")
+            error_messages.append("Minterm dan don't care tidak boleh tumpang tindih")
 
         if error_messages:
             raise forms.ValidationError(error_messages)

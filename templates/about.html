@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row g-4">
+  <div class="col-12">
+    <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+      <div class="card-header bg-gradient text-white py-4 border-0" style="background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);">
+        <h2 class="mb-1 fw-semibold">Tentang Quine-McCluskey</h2>
+        <p class="mb-0 text-white-50">Pendekatan praktis untuk menyederhanakan ekspresi Boolean.</p>
+      </div>
+      <div class="card-body p-4">
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h4 class="card-title"><i class="bi bi-diagram-3-fill text-primary me-2"></i>Apa itu Quine-McCluskey?</h4>
+                <p class="text-muted mb-0">Quine-McCluskey adalah metode tabular yang digunakan dalam desain logika digital untuk menyederhanakan ekspresi Boolean dengan meminimalkan jumlah literal dan suku. Metode ini sangat berguna untuk menangani tabel kebenaran yang lebih besar secara sistematis.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h4 class="card-title"><i class="bi bi-play-circle-fill text-primary me-2"></i>Alur Algoritma</h4>
+                <ul class="mb-0 text-muted">
+                  <li>Mengelompokkan minterm berdasarkan jumlah angka 1 dalam bentuk biner</li>
+                  <li>Menggabungkan suku yang kompatibel secara berulang</li>
+                  <li>Menghasilkan prime implicant</li>
+                  <li>Membangun dan menganalisis tabel prime implicant</li>
+                  <li>Mengidentifikasi essential implicant dan menerapkan metode Petrick jika diperlukan</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h4 class="card-title"><i class="bi bi-check2-circle-fill text-success me-2"></i>Kelebihan</h4>
+                <ul class="mb-0 text-muted">
+                  <li>Menghasilkan ekspresi Boolean yang lebih sederhana</li>
+                  <li>Cocok untuk penyederhanaan manual maupun otomatis</li>
+                  <li>Mudah divisualisasikan langkah demi langkah</li>
+                  <li> Membantu memahami desain rangkaian digital</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h4 class="card-title"><i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>Keterbatasan</h4>
+                <ul class="mb-0 text-muted">
+                  <li>Dapat menjadi panjang untuk himpunan input yang sangat besar</li>
+                  <li>Memerlukan penanganan yang hati-hati untuk suku don't-care</li>
+                  <li>Paling cocok untuk tugas minimisasi logika yang terstruktur</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h4 class="card-title"><i class="bi bi-speedometer2 text-primary me-2"></i>Kompleksitas Waktu</h4>
+                <p class="text-muted mb-0">Metode ini dapat berkembang pesat seiring bertambahnya jumlah variabel dan suku, sehingga lebih praktis untuk masalah Boolean berukuran menengah.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h4 class="card-title"><i class="bi bi-memory text-primary me-2"></i>Kompleksitas Ruang</h4>
+                <p class="text-muted mb-0">Algoritma ini memerlukan penyimpanan untuk suku yang dikelompokkan, prime implicant, dan struktur tabel, sehingga kebutuhan ruang meningkat seiring ukuran input.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body">
+                <h4 class="card-title"><i class="bi bi-tools text-primary me-2"></i>Teknologi yang Digunakan</h4>
+                <div class="row g-3 mt-1">
+                  <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="p-3 rounded-3 bg-light">Python</div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="p-3 rounded-3 bg-light">Django</div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="p-3 rounded-3 bg-light">Bootstrap 5</div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="p-3 rounded-3 bg-light">SQLite</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body">
+                <h4 class="card-title"><i class="bi bi-stars text-primary me-2"></i>Fitur Proyek</h4>
+                <ul class="mb-0 text-muted">
+                  <li>Visualisasi Quine-McCluskey interaktif</li>
+                  <li>Validasi untuk input yang tidak valid</li>
+                  <li>Antarmuka responsif yang modern</li>
+                  <li>Riwayat perhitungan dan statistik</li>
+                  <li>Penjelasan langkah demi langkah proses penyederhanaan</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body">
+                <h4 class="card-title"><i class="bi bi-person-badge-fill text-primary me-2"></i>Informasi Pengembang</h4>
+                <p class="text-muted mb-0">Dibuat sebagai proyek web berbasis pembelajaran untuk mendemonstrasikan algoritma Quine-McCluskey dengan antarmuka yang modern dan mudah digunakan.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

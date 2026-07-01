@@ -20,9 +20,9 @@ class HomeViewTests(TestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Step-by-step Visualization")
-        self.assertContains(response, "Initial Grouping")
-        self.assertContains(response, "Final Boolean Expression")
+        self.assertContains(response, "Visualisasi Langkah Demi Langkah")
+        self.assertContains(response, "Pengelompokan Awal")
+        self.assertContains(response, "Hasil Ekspresi Boolean")
 
     def test_duplicate_minterms_and_overlap_are_rejected(self):
         response = self.client.post(
@@ -35,8 +35,8 @@ class HomeViewTests(TestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Duplicate minterms are not allowed")
-        self.assertContains(response, "Minterms and don't cares cannot overlap")
+        self.assertContains(response, "Minterm duplikat tidak diperbolehkan")
+        self.assertContains(response, "Minterm dan don't care tidak boleh tumpang tindih")
 
     def test_out_of_range_values_are_rejected(self):
         response = self.client.post(
@@ -49,4 +49,4 @@ class HomeViewTests(TestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Value 4 is outside the allowed range")
+        self.assertContains(response, "Nilai 4 di luar rentang yang diperbolehkan")

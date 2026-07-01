@@ -4,7 +4,136 @@
 
 {% block content %}
 
-<div class="row g-4">
+<section class="hero-section card border-0 shadow-lg rounded-4 overflow-hidden mb-4">
+  <div class="row g-0 align-items-center">
+    <div class="col-lg-7 p-4 p-lg-5">
+      <span class="hero-badge">Pembelajaran Interaktif</span>
+      <h1 class="display-5 fw-bold mb-3">Visualisasi Algoritma Quine-McCluskey</h1>
+      <p class="lead text-muted mb-4">Pelajari cara kerja penyederhanaan ekspresi Boolean melalui visualisasi langkah demi langkah, statistik, dan metode Petrick yang intuitif.</p>
+      <div class="d-flex flex-wrap gap-2">
+        <a href="#calculator" class="btn btn-primary btn-lg">Mulai Visualisasi</a>
+        <a href="/about/" class="btn btn-outline-primary btn-lg">Tentang Aplikasi</a>
+      </div>
+    </div>
+    <div class="col-lg-5 p-4 p-lg-5 bg-light hero-side">
+      <div class="rounded-4 border p-4 h-100 hero-panel">
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div class="hero-icon">
+            <i class="bi bi-diagram-3-fill"></i>
+          </div>
+          <div>
+            <h5 class="mb-0">Visualisasi yang jelas</h5>
+            <p class="small text-muted mb-0">Dari input hingga ekspresi akhir</p>
+          </div>
+        </div>
+        <div class="row g-2 small text-muted">
+          <div class="col-6">
+            <div class="p-2 rounded-3 bg-white border">Input minterm</div>
+          </div>
+          <div class="col-6">
+            <div class="p-2 rounded-3 bg-white border">Pengelompokan</div>
+          </div>
+          <div class="col-6">
+            <div class="p-2 rounded-3 bg-white border">Kombinasi</div>
+          </div>
+          <div class="col-6">
+            <div class="p-2 rounded-3 bg-white border">Prime implicant</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mb-5">
+  <div class="row g-4">
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card h-100 border-0 shadow-sm rounded-4">
+        <div class="card-body p-4">
+          <div class="feature-icon mb-3"><i class="bi bi-list-ol"></i></div>
+          <h5 class="fw-semibold mb-2">Step-by-Step</h5>
+          <p class="text-muted mb-0">Lihat setiap tahapan penyederhanaan secara runtut dan mudah dipahami.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card h-100 border-0 shadow-sm rounded-4">
+        <div class="card-body p-4">
+          <div class="feature-icon mb-3"><i class="bi bi-bar-chart-fill"></i></div>
+          <h5 class="fw-semibold mb-2">Statistik</h5>
+          <p class="text-muted mb-0">Dapatkan gambaran ringkas tentang variabel, minterm, dan iterasi.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card h-100 border-0 shadow-sm rounded-4">
+        <div class="card-body p-4">
+          <div class="feature-icon mb-3"><i class="bi bi-clock-history"></i></div>
+          <h5 class="fw-semibold mb-2">Riwayat</h5>
+          <p class="text-muted mb-0">Simpan dan tinjau hasil perhitungan sebelumnya dengan cepat.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card h-100 border-0 shadow-sm rounded-4">
+        <div class="card-body p-4">
+          <div class="feature-icon mb-3"><i class="bi bi-bezier2"></i></div>
+          <h5 class="fw-semibold mb-2">Petrick Method</h5>
+          <p class="text-muted mb-0">Pahami pemilihan solusi optimal melalui tahapan yang jelas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mb-5">
+  <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+    <div class="card-body p-4 p-lg-5">
+      <div class="text-center mb-4">
+        <h2 class="fw-semibold mb-2">Alur Algoritma</h2>
+        <p class="text-muted mb-0">Dari input awal hingga ekspresi boolean akhir.</p>
+      </div>
+      <div class="flowchart">
+        <div class="flow-step">
+          <div class="flow-icon"><i class="bi bi-input-cursor-text"></i></div>
+          <div class="flow-title">Input</div>
+        </div>
+        <div class="flow-arrow"><i class="bi bi-arrow-down"></i></div>
+        <div class="flow-step">
+          <div class="flow-icon"><i class="bi bi-layer-forward"></i></div>
+          <div class="flow-title">Initial Grouping</div>
+        </div>
+        <div class="flow-arrow"><i class="bi bi-arrow-down"></i></div>
+        <div class="flow-step">
+          <div class="flow-icon"><i class="bi bi-diagram-2"></i></div>
+          <div class="flow-title">Combination</div>
+        </div>
+        <div class="flow-arrow"><i class="bi bi-arrow-down"></i></div>
+        <div class="flow-step">
+          <div class="flow-icon"><i class="bi bi-node-plus"></i></div>
+          <div class="flow-title">Prime Implicant</div>
+        </div>
+        <div class="flow-arrow"><i class="bi bi-arrow-down"></i></div>
+        <div class="flow-step">
+          <div class="flow-icon"><i class="bi bi-shield-check"></i></div>
+          <div class="flow-title">Essential Prime Implicant</div>
+        </div>
+        <div class="flow-arrow"><i class="bi bi-arrow-down"></i></div>
+        <div class="flow-step">
+          <div class="flow-icon"><i class="bi bi-bezier2"></i></div>
+          <div class="flow-title">Petrick Method</div>
+        </div>
+        <div class="flow-arrow"><i class="bi bi-arrow-down"></i></div>
+        <div class="flow-step">
+          <div class="flow-icon"><i class="bi bi-check2-circle"></i></div>
+          <div class="flow-title">Ekspresi Boolean Akhir</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="row g-4" id="calculator">
 
 <div class="col-lg-5">
 
@@ -12,9 +141,9 @@
 
 <div class="card-header bg-gradient text-white py-4 border-0" style="background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);">
 
-<h4 class="mb-0 fw-semibold">Quine McCluskey Calculator</h4>
+<h4 class="mb-0 fw-semibold">Kalkulator Quine McCluskey</h4>
 
-<p class="mb-0 mt-2 text-white-50">Enter minterms and don't cares to simplify your boolean expression with a polished step-by-step view.</p>
+<p class="mb-0 mt-2 text-white-50">Masukkan minterm dan nilai don't care untuk menyederhanakan ekspresi boolean Anda dengan tampilan langkah demi langkah yang rapi.</p>
 
 </div>
 
@@ -94,7 +223,7 @@
 
 <i class="bi bi-play-fill"></i>
 
-Hitung
+Sederhanakan
 
 </button>
 
@@ -114,7 +243,7 @@ Hitung
 
 <div class="card-header bg-white py-4 border-0">
 
-<h4 class="mb-0 fw-semibold">Step-by-step Visualization</h4>
+<h4 class="mb-0 fw-semibold">Visualisasi Langkah Demi Langkah</h4>
 
 </div>
 
@@ -132,7 +261,7 @@ Hitung
 
 <div class="card-body">
 
-<h5 class="card-title mb-3">Statistics</h5>
+<h5 class="card-title mb-3">Statistik</h5>
 
 <div class="row g-3">
 
@@ -140,7 +269,7 @@ Hitung
 
 <div class="p-3 rounded-3 bg-light h-100">
 
-<div class="text-muted small">Number of Variables</div>
+<div class="text-muted small">Jumlah Variabel</div>
 
 <div class="fw-bold fs-5">{{ stats.variables }}</div>
 
@@ -152,7 +281,7 @@ Hitung
 
 <div class="p-3 rounded-3 bg-light h-100">
 
-<div class="text-muted small">Number of Minterms</div>
+<div class="text-muted small">Jumlah Minterm</div>
 
 <div class="fw-bold fs-5">{{ stats.minterms }}</div>
 
@@ -164,7 +293,7 @@ Hitung
 
 <div class="p-3 rounded-3 bg-light h-100">
 
-<div class="text-muted small">Number of Don't Care terms</div>
+<div class="text-muted small">Jumlah Nilai Don't Care</div>
 
 <div class="fw-bold fs-5">{{ stats.dont_cares }}</div>
 
@@ -176,7 +305,7 @@ Hitung
 
 <div class="p-3 rounded-3 bg-light h-100">
 
-<div class="text-muted small">Number of Prime Implicants</div>
+<div class="text-muted small">Jumlah Prime Implicant</div>
 
 <div class="fw-bold fs-5">{{ stats.prime_implicants }}</div>
 
@@ -188,7 +317,7 @@ Hitung
 
 <div class="p-3 rounded-3 bg-light h-100">
 
-<div class="text-muted small">Number of Essential Prime Implicants</div>
+<div class="text-muted small">Jumlah Essential Prime Implicant</div>
 
 <div class="fw-bold fs-5">{{ stats.essential_prime_implicants }}</div>
 
@@ -200,7 +329,7 @@ Hitung
 
 <div class="p-3 rounded-3 bg-light h-100">
 
-<div class="text-muted small">Number of Iterations</div>
+<div class="text-muted small">Jumlah Iterasi</div>
 
 <div class="fw-bold fs-5">{{ stats.iterations }}</div>
 
@@ -212,7 +341,7 @@ Hitung
 
 <div class="p-3 rounded-3 bg-light h-100">
 
-<div class="text-muted small">Execution Time (ms)</div>
+<div class="text-muted small">Waktu Eksekusi (ms)</div>
 
 <div class="fw-bold fs-5">{{ stats.execution_time_ms }}</div>
 
@@ -236,7 +365,7 @@ Hitung
 
 <div class="card-header bg-light border-0">
 
-<h5 class="mb-0">1. Initial Grouping</h5>
+<h5 class="mb-0">1. Pengelompokan Awal</h5>
 
 </div>
 
@@ -290,7 +419,7 @@ Hitung
 
 {% else %}
 
-<p class="text-muted mb-0">No initial grouping available.</p>
+<p class="text-muted mb-0">Tidak ada pengelompokan awal.</p>
 
 {% endif %}
 
@@ -310,7 +439,7 @@ Hitung
 
 <div class="card-header bg-light border-0">
 
-<h5 class="mb-0">{{ forloop.counter|add:1 }}. Combination Iteration {{ iteration.iteration }}</h5>
+<h5 class="mb-0">{{ forloop.counter|add:1 }}. Iterasi Kombinasi {{ iteration.iteration }}</h5>
 
 </div>
 
@@ -340,7 +469,7 @@ Hitung
 
 <div class="col-12">
 
-<p class="text-muted mb-0">No further groups were produced in this iteration.</p>
+<p class="text-muted mb-0">Tidak ada grup tambahan yang dihasilkan pada iterasi ini.</p>
 
 </div>
 
@@ -364,13 +493,13 @@ Hitung
 
 <div class="card-header bg-light border-0">
 
-<h5 class="mb-0">2. Combination Iteration 1</h5>
+<h5 class="mb-0">2. Iterasi Kombinasi 1</h5>
 
 </div>
 
 <div class="card-body">
 
-<p class="text-muted mb-0">No combination iterations were needed.</p>
+<p class="text-muted mb-0">Tidak ada iterasi kombinasi yang diperlukan.</p>
 
 </div>
 
@@ -386,7 +515,7 @@ Hitung
 
 <div class="card-header bg-light border-0">
 
-<h5 class="mb-0">5. Prime Implicant Table</h5>
+<h5 class="mb-0">5. Tabel Prime Implicant</h5>
 
 </div>
 
@@ -448,7 +577,7 @@ Hitung
 
 <div class="card-header bg-light border-0">
 
-<h5 class="mb-0">6. Prime Implicant Chart</h5>
+<h5 class="mb-0">6. Diagram Prime Implicant</h5>
 
 </div>
 
@@ -530,7 +659,7 @@ Hitung
 
 {% else %}
 
-<p class="text-muted mb-0">No essential prime implicants were required.</p>
+<p class="text-muted mb-0">Tidak ada Essential Prime Implicant yang diperlukan.</p>
 
 {% endif %}
 
@@ -578,7 +707,7 @@ Hitung
 
 {% else %}
 
-<p class="text-muted mb-0">No Petrick method steps were required.</p>
+<p class="text-muted mb-0">Tidak ada langkah Petrick Method yang diperlukan.</p>
 
 {% endif %}
 
@@ -594,7 +723,7 @@ Hitung
 
 <div class="card-header bg-light border-0">
 
-<h5 class="mb-0">9. Final Boolean Expression</h5>
+<h5 class="mb-0">9. Hasil Ekspresi Boolean</h5>
 
 </div>
 
